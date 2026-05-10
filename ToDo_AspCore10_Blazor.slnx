@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="TodoListBlazor.API/TodoListBlazor.API.csproj" />
   <Project Path="TodoListBlazorWasm/TodoListBlazorWasm.csproj" />
 </Solution>
