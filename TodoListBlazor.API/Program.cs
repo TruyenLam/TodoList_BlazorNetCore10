@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TodoListBlazor.API.Data;
+using TodoListBlazor.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddOpenApi();
 // EF Core
 builder.Services.AddDbContext<TodoListDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+
 // Register seed service before Build() so it is available in the DI container.
 builder.Services.AddScoped<TodoListDBContextSeed>();
 
